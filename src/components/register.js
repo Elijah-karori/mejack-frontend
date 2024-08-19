@@ -15,7 +15,7 @@ function Register() {
   const handleRegister = async () => {
     setLoading(true);
     try {
-      const response = await axios.post('http://127.0.0.1:8000/users/register', { email, password, role });
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/users/register`, { email, password, role });
       setMessage(response.data.message);
       setShowOtpVerification(true);
     } catch (error) {

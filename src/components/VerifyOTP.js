@@ -7,7 +7,7 @@ function VerifyOTP({ email, onOtpSuccess, onOtpFailure }) {
 
   const handleVerifyOtp = async () => {
     try {
-      const response = await axios.post(`http://127.0.0.1:8000/users/login/verify-otp?email=${email}`, // email as a query parameter
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/users/login/verify-otp?email=${email}`, // email as a query parameter
         { email,otp } // otp as body parameter
         );
       localStorage.setItem('token', response.data.access_token);
