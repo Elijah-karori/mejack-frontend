@@ -9,7 +9,7 @@ function Dashboard() {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('https://mejack-project.onrender.com/users/me', {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/me`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
